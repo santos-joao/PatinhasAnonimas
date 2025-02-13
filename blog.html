@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amigos de Pata</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark is-navbar-dark w-100 shadow-sm">
+    <div class="container px-0">
+
+      <b><a class="navbar-brand" href="{{ url_for('index') }}"><img src="/static/img/logo-projeto.png" alt="Achei um Amigo"></a></b>
+
+        <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-default" aria-controls="navbar-default" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="icon-bar top-bar mt-0"></span>
+            <span class="icon-bar middle-bar"></span>
+            <span class="icon-bar bottom-bar"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbar-default" >
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <b><a class="nav-link" href="{{ url_for('adotar') }}">Quero Adotar</a></b>
+            </li>
+            <li class="nav-item">
+              <b><a class="nav-link" href="{{ url_for('blog') }}">Blog</a></b>
+            </li>
+          </ul>
+
+          {% if is_logged_in %}
+          <div class="navbar-links">
+            <a href="{{ url_for('config') }}" class="no-underline" title="Configurações"><b>Configurações</b></a>
+            <a href="{{ url_for('logout') }}" class="btn" title="Logout"><b>Logout</b></a>
+          </div>
+          {% else %}
+          <div class="navbar-links">
+            <a href="{{ url_for('login') }}" class="no-underline" title="Login"><b>Login</b></a>
+            <a href="{{ url_for('cadastro') }}" class="btn" title="Cadastre-se"><b>Cadastre-se</b></a>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+  </nav>
+ <br><br><br><br><br>
+    <div class="container">
+      <blockquote class="blockquote" id='blog-1'>
+        <br>
+        <h1><b>Amigos de Pata</b></h1>
+          <h2><b>Quem somos?</b></h2>
+          <p class="container">Olá! Nós somos um site dedicado a ajudar animais incríveis a encontrar um novo lar cheio de amor e cuidado. Aqui, você pode conhecer nossos adoráveis amigos peludos que estão à espera de uma família para chamar de sua. Fornecemos informações detalhadas sobre cada animal disponível para adoção, com o objetivo de garantir que você faça a escolha certa e se prepare para oferecer o melhor cuidado possível. Nosso compromisso é promover a adoção responsável, orientando você durante todo o processo e ajudando a criar laços duradouros entre os animais e seus novos donos. Adote, ame e faça a diferença na vida de um amigo fiel!</p>
+          <h2><b>Por que adotar um pet?</b></h2>
+          <p class="container"><span style="font-weight: 400;">Ao adotar um animal, você está fazendo a diferença. Além de proporcionar um lar amoroso para um ser necessitado, você também se torna parte de um movimento maior, promovendo a conscientização sobre a importância da adoção responsável e incentivando outras pessoas a seguirem o mesmo caminho. Adotar um animal é um ato de amor e responsabilidade que traz benefícios tanto para o animal quanto para você. 
+          <br>
+          <p class="container"><span style="font-weight: 400;">Ao adotar, você oferece uma segunda chance de vida a um ser que pode ter passado por momentos difíceis, e com isso, cria um vínculo de carinho e lealdade. Além disso, a adoção ajuda a combater o abandono e a superlotação de abrigos, promovendo um mundo mais justo e humano para os animais</span></p>
+          <br>
+          <p class="container"><span style="font-weight: 400;"></span>Ao adotar, você também contribui para a redução da criação irresponsável de animais e ajuda a controlar a população de cães e gatos. Em muitos casos, os animais adotados já estão castrados, vacinados e, muitas vezes, têm um temperamento mais calmo, facilitando o processo de adaptação. E, claro, a companhia de um animal de estimação traz inúmeros benefícios emocionais, como maior bem-estar, redução do estresse e muita diversão.</span></p>
+          <br>
+
+          <h2><b>Como ajudar a ONG?</b></h2>          
+            <p class="container"><span style="font-weight: 400;">Você pode ajudar a ONG de diversas formas, seja doando ração, medicamentos, cobertores, brinquedos, ou até mesmo dinheiro. Além disso, você também pode se tornar um voluntário, ajudando a cuidar dos animais, levando-os para passear, ou até mesmo ajudando a divulgar o trabalho da ONG nas redes sociais.</span></p>
+          <br>
+      
+          <h2>
+            <b>Como cuidar de um pet? Aqui vão 5 dicas!</b>
+          </h2><img src="static/img/imganimal.png">
+          <p class="tagline"; text-align="center"><span style="font-weight: 400;">
+          Os animais de estimação precisam de cuidados especiais para se manterem sempre com a saúde em dia, tanto física quanto mental. Com a proximidade mantida por seres humanos, muitas vezes eles absorvem seus problemas e anseios. Assim, descubra a seguir 10 dicas muito importantes para garantir que eles estejam sempre saudáveis e felizes.</span><p>
+          <br>
+
+        Os animais de estimação podem ser vistos como “coisas” e, assim, acabam sendo deixados de lado por falta de dinheiro, tempo, mau comportamento ou até mesmo porque um bebê humano nasceu.
+        
+        Ainda que não sejam abandonados na rua, muitos deles deixam de ser o “filhotinho” da casa e são destinados ao quintal, em alguns casos abandonados e sem atenção por horas a fio.
+        
+        Logo, antes de adotar um animal de estimação é necessário ter em mente que ele é um membro da família e vai precisar de atenção e carinho durante toda a sua vida.</p>
+        <h3><b>2. Dê todas as vacinas</b></h3>
+        <p class="container">Durante o primeiro ano de vida de um animal ele vai precisar tomar várias vacinas. E depois disso, também será necessário dar doses de reforço de tempos em tempos.
+
+        As vacinas são essenciais pois evitam que o animal tenha doenças como raiva, cinomose e gripe canina, por exemplo. 
+        
+        Algumas delas são obrigatórias. Entretanto, quanto mais protegido o animal estiver, melhor! Portanto, é interessante não abrir mão de nenhuma delas.</p>
+        <h3><b>3. Faça exames regularmente</b></h3>
+        <p class="container"><span style="font-weight: 400;">Assim como os humanos, os animais de estimação também precisam fazer exames regularmente. Isso porque, muitas vezes, eles não conseguem expressar o que estão sentindo e, por isso, é importante que um veterinário faça uma avaliação completa de tempos em tempos.
+        
+          Além disso, os exames são essenciais para detectar doenças precocemente, o que aumenta as chances de cura e diminui o sofrimento do animal.</span></p>
+        <h3><b>4. Mantenha a higiene em dia</b></h3>
+        <p class="container"><span style="font-weight: 400;">A higiene é um dos pontos mais importantes para garantir a saúde e o bem-estar do seu animal de estimação. Por isso, é fundamental manter a higiene do ambiente onde ele vive, bem como a higiene do próprio animal.
+        
+          Escovar os pelos, cortar as unhas, limpar os ouvidos e os olhos, dar banho regularmente e manter a casa limpa são algumas das práticas que ajudam a manter o seu pet saudável e feliz.</span></p>
+        <h3><b>5. Dê uma alimentação adequada</b></h3>
+        <p class="container"><span style="font-weight: 400;">A alimentação é um dos pilares da saúde do seu animal de estimação. Por isso, é importante oferecer uma alimentação adequada, balanceada e de qualidade para garantir que ele tenha todos os nutrientes necessários para se manter saudável e ativo.
+        
+          Consulte um veterinário para saber qual é a melhor alimentação para o seu pet, levando em consideração a idade, o porte, a raça e o estilo de vida dele. Além disso, lembre-se de oferecer água fresca e limpa sempre que ele precisar.</span></p>
+          <br>
+          <h3><b>Como ajudar um animal doente?</b></h3>
+          <p class="container"><span style="font-weight: 400;">Se você encontrar um animal doente ou ferido, é importante agir com rapidez e responsabilidade para garantir que ele receba o cuidado necessário. Aqui estão algumas dicas sobre como ajudar um animal doente:</span></p>
+          <br>
+          <h3><b>1. Identifique os sinais de doença</b></h3>
+          <p class="container"><span style="font-weight: 400;">Os sinais de doença em animais podem variar de acordo com a condição de saúde do animal. Alguns sinais comuns de doença incluem letargia, falta de apetite, vômitos, diarreia, dificuldade para respirar, tosse, coceira, perda de peso, entre outros. Se você notar algum desses sinais em um animal, é importante agir com rapidez para garantir que ele receba o cuidado necessário.</span></p>
+          <br>
+          <h3><b>2. Ofereça água e comida</b></h3>
+          <p class="tagline"; text-align="center"><span style="font-weight: 400;">Se você encontrar um animal doente ou ferido, é importante oferecer água e comida para ajudá-lo a se recuperar. No entanto, é importante lembrar que alguns alimentos podem ser prejudiciais para os animais, por isso, é importante consultar um veterinário antes de oferecer qualquer alimento. Além disso, é importante garantir que o animal tenha acesso a água fresca e limpa o tempo todo.</span></p>
+          <br>
+          <h3><b>3. Leve o animal ao veterinário</b></h3>
+          <p class="container"><span style="font-weight: 400;">Se você encontrar um animal doente ou ferido, é importante levá-lo ao veterinário o mais rápido possível para que ele receba o cuidado necessário. O veterinário poderá fazer um diagnóstico preciso da condição de saúde do animal e recomendar o tratamento adequado. Além disso, o veterinário poderá orientá-lo sobre como cuidar do animal em casa e garantir que ele se recupere o mais rápido possível.</span></p>
+          <br>
+      </blockquote>
+    </div>
+<footer> 
+        <hr class="border border-primary border-2 opacity-80">
+      
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-2">           
+              <img src="static/img/LogoEmpresa.png " width="200"; margin-top='-40px' ; text-align="center"; alt="Logo">
+            </div>
+              <div class="col-5">           
+                <p class="tagline"; text-align="center">Amigos de Pata é um programa criado para estreitar laços entre pessoas que têm o sonho de adotar um animalzinho e nossa ONG e protetores parceiros. Vamos juntos incentivar a adoção, conscientizar sobre a posse responsável e fomentar a cultura de doação em prol do bem-estar animais!</p>
+              </div>
+            <div class="col-3">
+              <ul class="nav justify-content-center">
+                <li class="nav-item">
+                  <a class="nav-link" href="https://api.whatsapp.com/send?phone=2140028922" target="blank">
+                    <img src="static/img/Logos/whatsapp.svg" alt="WhatsApp" width="30" height="24" id="Whatsapp"> (21)99999-0000</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="https://www.instagram.com/seu_perfil">
+                    <img src="static/img/Logos/instagram.svg" alt="Instagram" width="30" height="24" id="instagram">Ache um aumigo</a>
+                </li>
+                <br>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ url_for('blog') }}">
+                    <img src="static/img/Logos/Blog.svg" alt="Instagram" width="30" height="24" id="Blog">Blog</a>
+                </li>
+              </div>
+          </div>
+        </div>
+      
+            <h6 style="text-align: center; font-size: xx-small;"><a href="https://www.linkedin.com/in/jo%C3%A3o-v%C3%ADtor?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="blank">
+              © João Vítor  </a><span id="ano-copyright"></span>
+            </h6>
+            
+          
+              <script>
+                const anoAtual = new Date().getFullYear();
+              
+                document.getElementById('ano-copyright').textContent = anoAtual;
+              </script>
+          
+              <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+      </footer>
+</body>
+</html>  

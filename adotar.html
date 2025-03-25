@@ -1,154 +1,106 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amigos de Pata</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-
+    <title>Patinhas Anônimas</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Gluten:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">  
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark is-navbar-dark w-100 shadow-sm">
-        <div class="container px-0">
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo-container">
+            <img src="image/logoimg.png" alt="Logo Patinhas Anônimas" class="logo">
+            <span class="site-title">Patinhas Anônimas</span>
+        </div>
 
-            <b><a class="navbar-brand" href="{{ url_for('index') }}"><img src="/static/img/logo-projeto.png" alt="Achei um Amigo"></a></b>
-
-            <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-default" aria-controls="navbar-default" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="icon-bar top-bar mt-0"></span>
-                <span class="icon-bar middle-bar"></span>
-                <span class="icon-bar bottom-bar"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbar-default" >
-
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item">
-                        <b><a class="nav-link" href="{{ url_for('adotar') }}">Quero Adotar</a></b>
-                    </li>
-                    <li class="nav-item">
-                      <b><a class="nav-link" href="{{ url_for('blog') }}">Blog</a></b>
-                  </li>
-                </ul>
-
-                {% if is_logged_in %}
-                <div class="navbar-links">
-                  <a href="{{ url_for('config') }}" class="no-underline" title="Configurações"><b>Configurações</b></a>
-                  <a href="{{ url_for('logout') }}" class="btn" title="Logout"><b>Logout</b></a>
+        <p class="site-description">"Transformando vidas de quatros patas em histórias de amor e esperança."</p>
+        
+        <div class="button-container">
+            <a href="blog.html" class="btn"><i class="fas fa-info-circle"></i> Sobre Nós</a>
+            <a href="login.html" class="btn"><i class="fas fa-hands-helping"></i> Seja Voluntário</a>
+            <a href="login.html" class="btn"><i class="fas fa-hand-holding-heart"></i> Faça uma Doação</a>
+            <a href="login.html" class="btn"><i class="fas fa-paw"></i> Campanha de Adoção</a>
+        </div>
+        </nav>
+    
+    <!-- Post -->
+    <div class="post">
+        <div calss="center">
+           <h2 class="title">Adote um novo melhor amigo!</h2>
+           <h5 class="subtitle"> 🐾 Encontre aqui o seu novo companheiro de quatro patas. 🐾</h5>
+           <div class="posts">
+              <div class="post_box">
+                <div class="post_wrapper">
+                    <div class="post_img">
+                        <img src="image/img10.jpg" alt="Cachorro 1" class="img_responsivel">
+                    </div>                  
+                      <span class="post_title">Nome do Animalzinho</span>
+                      <p class="post_subtitle">Dados do animal</p> 
                 </div>
-              {% else %}
-                <div class="navbar-links">
-                  <a href="{{ url_for('login') }}" class="no-underline" title="Login"><b>Login</b></a>
-                  <a href="{{ url_for('cadastro') }}" class="btn" title="Cadastre-se"><b>Cadastre-se</b></a>
+              </div>
+              <div class="post_box">
+                <div class="post_wrapper">
+                    <div class="post_img">
+                        <img src="image/img10.jpg" alt="Cachorro 1" class="img_responsivel">
+                    </div>                  
+                      <span class="post_title">Nome do Animalzinho</span>
+                      <p class="post_subtitle">Dados do animal</p> 
                 </div>
-              {% endif %}
-
-            </div>
-        </div>
-    </nav>
-  <br><br><br><br><br>
-
-<br>
-<h2 id="titulo_adocao"> Conheça nossos Aumigos!</h2>
-<div class="container-fluid px-0" id="container_adocao">
-  <div class="row g-6 mt-6">
-    <div class="col-md-4">   
-      <div class="card-animal" style="width: 18rem;">
-        <img src="static/img/Adocao/Dulce Maria_1.jpeg" class="card-img-top" alt="...">
-        <div class="card-animal">
-          <h4>Sem Nome</h4>
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">Femea</li>
-          <li class="list-group-item">Chow-chow</li>
-          <li class="list-group-item">2 semanas</li>
-        </ul>
-        </div>
-      </div>
-      <div class="col-md-4">   
-        <div class="card-animal" style="width: 18rem;">
-          <img src="static/img/Adocao/Tigrado.jpeg" class="card-img-top" alt="...">
-          <div class="card-animal">
-            <h4 id="Nome_Adocao">Tigrado</h4>
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Macho</li>
-            <li class="list-group-item">Gato </li>
-            <li class="list-group-item">4 anos</li>
-          </ul>
-          </div>
-        </div>
-        <div class="col-md-4">   
-          <div class="card-animal" style="width: 18rem;">
-            <img src="static/img/Adocao/zezinho.jpeg" class="card-img-top" alt="...">
-            <div class="card-animal">
-              <h4>Zezinho</h4>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Macho</li>
-              <li class="list-group-item">Gato</li>
-              <li class="list-group-item">2 anos</li>
-            </ul>
-            </div>
-          </div>
-          <div class="col-md-4">   
-            <div class="card-animal" style="width: 18rem;">
-              <img src="static/img/Adocao/Sem Nome.jpeg" class="card-img-top" alt="...">
-              <div class="card-animal">
-                <h4>Sem Nome</h4>
               </div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item">Femea</li>
-                <li class="list-group-item">chitson</li>
-                <li class="list-group-item">1 mês</li>
-              </ul>
+              <div class="post_box">
+                <div class="post_wrapper">
+                    <div class="post_img">
+                        <img src="image/img10.jpg" alt="Cachorro 1" class="img_responsivel">
+                    </div>                  
+                      <span class="post_title">Nome do Animalzinho</span>
+                      <p class="post_subtitle">Dados do animal</p> 
+                </div>
               </div>
-            </div>
-      </div>
+              <div class="post_box">
+                <div class="post_wrapper">
+                    <div class="post_img">
+                        <img src="image/img10.jpg" alt="Cachorro 1" class="img_responsivel">
+                    </div>                  
+                      <span class="post_title">Nome do Animalzinho</span>
+                      <p class="post_subtitle">Dados do animal</p> 
+                </div>
+              </div>
+              
+              <div class="clear"></div>
+         </div>
+     </div>
+ </div>                     
+    <!-- WhatsApp Flutuante -->
+    <div class="whatsapp-float">
+        <i class="fab fa-whatsapp whatsapp-icon"></i>
+        <div class="whatsapp-tooltip">
+            Pronto para encontrar seu novo melhor amigo? Me chama no WhatsApp e adote! 🐾
+        </div>
     </div>
 
-</div>
-    <footer> 
-        <hr class="border border-primary border-2 opacity-80">
-      
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-2">           
-              <img src="static/img/LogoEmpresa.png " width="200"; margin-top='-40px' ; text-align="center"; alt="Logo">
-            </div>
-              <div class="col-5">           
-                <p class="tagline"; text-align="center">Amigos de Pata é um programa criado para estreitar laços entre pessoas que têm o sonho de adotar um animalzinho e nossa ONG e protetores parceiros. Vamos juntos incentivar a adoção, conscientizar sobre a posse responsável e fomentar a cultura de doação em prol do bem-estar animais!</p>
-              </div>
-            <div class="col-3">
-              <ul class="nav justify-content-center">
-                <li class="nav-item">
-                  <a class="nav-link" href="https://api.whatsapp.com/send?phone=2140028922" target="blank">
-                    <img src="static/img/Logos/whatsapp.svg" alt="WhatsApp" width="30" height="24" id="Whatsapp"> (21)99999-0000</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="https://www.instagram.com/garranimal/">
-                    <img src="static/img/Logos/instagram.svg" alt="Instagram" width="30" height="24" id="instagram">Ache um Aumigo</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{{ url_for('blog') }}">
-                    <img src="static/img/Logos/Blog.svg" alt="Instagram" width="30" height="24" id="Blog">Blog</a>
-                </li>
-              </div>
-          </div>
+<!-- Footer -->
+<footer>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/patinhasanonimas/" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" target="_blank">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://wa.me/qr/XI3RLIYEDKZSD1" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+            </a>
         </div>
-      
-            <h6 style="text-align: center; font-size: xx-small;"><a href="https://www.linkedin.com/in/jo%C3%A3o-v%C3%ADtor?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="blank">
-              © João Vítor  </a><span id="ano-copyright"></span>
-            </h6>
-            
-          
-              <script>
-                const anoAtual = new Date().getFullYear();
-              
-                document.getElementById('ano-copyright').textContent = anoAtual;
-              </script>
-          
-              <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-      </footer>
+        <p>© <span id="year"></span> Patinhas Anônimas. Todos os direitos reservados.</p>
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</footer>
 </body>
-</html>  
+</html>
